@@ -14,7 +14,7 @@ export class LoggerService extends ConsoleLogger {
         winston.format.timestamp(),
         winston.format.json(),
       ),
-      defaultMeta: { service: 'user-service' },
+      defaultMeta: { service: 'service' },
       transports: [
         new winston.transports.Console(),
         new winston.transports.File({ filename: 'error.log', level: 'error' }),

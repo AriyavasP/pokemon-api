@@ -17,6 +17,9 @@ export class PokemonSearchDto {
 }
 
 export class PokemonAbilityDto {
+  @IsString()
+  name: string;
+
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => Abilities)
@@ -48,4 +51,9 @@ export class Ability {
     },
   )
   url: string;
+}
+
+export class PokemonCount {
+  @IsNumber()
+  count: number;
 }
