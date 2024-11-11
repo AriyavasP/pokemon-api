@@ -1,5 +1,3 @@
-// packages/shared/src/services/logger.service.ts
-
 import { Injectable, Scope, ConsoleLogger } from '@nestjs/common';
 import * as winston from 'winston';
 

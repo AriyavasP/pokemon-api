@@ -15,6 +15,7 @@ import { LoggingInterceptor } from './common/logging/logging.interceptor';
 import { LoggerService } from './common/logging/logger.service';
 import { AuthMiddleware } from './common/middleware/http-header.middleware';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { PokemonModule } from './pokemon/pokemon.module';
 
 @Module({
   imports: [
@@ -32,10 +33,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         synchronize: true,
       }),
     }),
-    UserModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    UserModule,
+    PokemonModule,
   ],
   controllers: [],
   providers: [
