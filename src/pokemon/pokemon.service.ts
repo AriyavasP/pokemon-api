@@ -78,7 +78,6 @@ export class PokemonService implements IPokemonBaseService {
       const pokemon: PokemonAbilityDto = await this.pokenmonRepository
         .getPokemonByName(random.toString())
         .toPromise();
-      console.log(pokemon.name);
 
       const cachedPokemon = await this.cacheManager.get<string>(pokemon.name);
       if (!cachedPokemon) {
