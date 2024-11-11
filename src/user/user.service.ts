@@ -35,19 +35,11 @@ export class UserService implements IUserBaseService {
         return ResponseUtils.BadRequestResponse('Username already exists');
       }
 
-      const existingEmail = await this.userRepository.findByEmail(
-        createUserDto.email,
-      );
-      if (existingEmail) {
-        return ResponseUtils.BadRequestResponse('Email is already in use');
-      }
-
       const hashedPassword = await this.hashPassword(createUserDto.password);
 
       const user = new UserEntity();
       user.username = createUserDto.username;
       user.password = hashedPassword;
-      user.email = createUserDto.email;
 
       const savedUser = await this.userRepository.createUser(user);
 
